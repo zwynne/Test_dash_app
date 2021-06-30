@@ -16,6 +16,7 @@ df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/hello
 app = dash.Dash('app', server=server)
 
 app.scripts.config.serve_locally = False
+dcc._js_dist[0]['external_url'] = 'https://cdn.plot.ly/plotly-basic-latest.min.js'
 
 app.layout = html.Div([
     html.H1('Stock Tickers'),
