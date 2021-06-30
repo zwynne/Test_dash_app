@@ -1,0 +1,12 @@
+[Unit]
+Description=Dash example app
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/var/www/example_dash_app
+Environment="PATH=/var/www/example_dash_app/env/bin"
+ExecStart=sudo /var/www/example_dash_app/env/bin/gunicorn --workers 3 -bind 0.0.0.0:8080 wsgi:app
+
+[Install]
+WantedBy=multi-user.target
